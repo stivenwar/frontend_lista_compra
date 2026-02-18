@@ -23,7 +23,7 @@ const GridExample = () => {
     const fetchProveedores = async () => {
         try {
             setLoading(true);
-            const response = await fetch("http://localhost:3000/proveedores");
+            const response = await fetch("http://https://backend-api-lista-compra.onrender.com/proveedores");
             const data = await response.json();
             setProveedores(data);
             console.log("PROVEEDORES:", data);
@@ -50,7 +50,7 @@ const GridExample = () => {
 
         try {
             setLoadingProveedor(true);
-            const response = await fetch("http://localhost:3000/proveedores", {
+            const response = await fetch("https://backend-api-lista-compra.onrender.com/proveedores", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -90,7 +90,7 @@ const GridExample = () => {
         try {
             setLoadingProducto(true);
             const response = await fetch(
-                `http://localhost:3000/proveedores/${proveedorId}/productos`,
+                `https://backend-api-lista-compra.onrender.com/proveedores/${proveedorId}/productos`,
                 {
                     method: "POST",
                     headers: {
@@ -132,7 +132,7 @@ const GridExample = () => {
         try {
             setLoadingProducto(true);
             await fetch(
-                `http://localhost:3000/proveedores/${proveedorId}/productos/${productoId}`,
+                `https://backend-api-lista-compra.onrender.com/proveedores/${proveedorId}/productos/${productoId}`,
                 {
                     method: "DELETE"
                 }
