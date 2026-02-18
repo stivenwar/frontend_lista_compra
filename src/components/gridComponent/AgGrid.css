@@ -1,0 +1,180 @@
+/* CONTENEDOR */
+.container {
+  width: 800px;
+  margin: 40px auto;
+  background-color: #f4f6f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* HEADER */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #1e293b;
+  color: white;
+  border-radius: 8px;
+}
+
+/* FILA PROVEEDOR */
+.proveedorRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px;
+  background-color: #cbd5e1;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* FILA PRODUCTO */
+.productoRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* BOTONES */
+.btnAdd {
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btnDelete {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* INPUT */
+.input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: white;
+  transition: 0.2s ease;
+}
+
+.input:focus {
+  border: 1px solid #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+.rowInput {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+
+/* LOADER */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-weight: bold;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #22c55e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* PROVEEDOR CLICKABLE */
+.proveedorClickable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.proveedorClickable:hover {
+  background-color: #b6c3d1;
+}
+
+.proveedorNombre {
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(90deg);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* 🔥 RESPONSIVE TABLET */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+
+  .header,
+  .proveedorRow,
+  .productoRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 🔥 RESPONSIVE MÓVIL */
+@media (max-width: 480px) {
+
+  .header {
+    display: none;
+    /* Ocultamos header en móvil */
+  }
+
+  .proveedorRow,
+  .productoRow {
+    display: block;
+  }
+
+  .proveedorRow div,
+  .productoRow div {
+    margin-bottom: 6px;
+  }
+
+  .productoRow {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .btnAdd,
+  .btnDelete {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
