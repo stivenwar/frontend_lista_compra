@@ -23,7 +23,7 @@ const GridExample = () => {
     const fetchProveedores = async () => {
         try {
             setLoading(true);
-            const response = await fetch("http://https://backend-api-lista-compra.onrender.com/proveedores");
+            const response = await fetch("https://backend-api-lista-compra.onrender.com/proveedores");
             const data = await response.json();
             setProveedores(data);
             console.log("PROVEEDORES:", data);
