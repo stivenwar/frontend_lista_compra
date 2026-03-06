@@ -128,6 +128,27 @@ const GridExample = () => {
             setLoadingProducto(false);
         }
     };
+
+    const eliminarProveedor = async (proveedorId) => {
+        try {
+            setLoadingProveedor(true);
+            await fetch(
+                `https://backend-api-lista-compra.onrender.com/proveedores/${proveedorId}`,
+                {
+                    method: "DELETE"
+                }
+            );
+
+            //await fetchProveedores(); // 🔥 refresca todo desde Firebase
+            setProveedores(prev => {
+                return prev.filter(prov => prov.id !== proveedorId);
+            });
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoadingProveedor(false);
+        }
+    };
     const eliminarProducto = async (proveedorId, productoId) => {
         try {
             setLoadingProducto(true);
@@ -180,17 +201,44 @@ const GridExample = () => {
                             )
                         }
                     >
-                        <span className="proveedorNombre">
-                            {prov.name}
-                        </span>
 
-                        <span
+                        <div>
+                            <span className="proveedorNombre">
+                                {prov.name}
+
+                            </span>
+                            <span
+                                className={`arrow ${proveedorAbierto === prov.id ? "open" : ""
+                                    }`}
+                            >
+                                ▶
+                            </span>
+                        </div>
+
+
+
+
+
+                        {/* <span
                             className={`arrow ${proveedorAbierto === prov.id ? "open" : ""
                                 }`}
                         >
                             ▶
-                        </span>
+                        </span> */}
+                        <button
+                            className="btnDelete"
+                            onClick={(e) => {
+                                e.stopPropagation(); // 🔥 importante
+                                if (window.confirm("¿Estás seguro de eliminar este proveedor?")) {
+                                    eliminarProveedor(prov.id);
+                                }
+                            }}
+                        >
+                            X
+                        </button>
+
                     </div>
+
 
                     {/* Productos */}
                     {proveedorAbierto === prov.id && (

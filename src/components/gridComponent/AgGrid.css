@@ -122,10 +122,15 @@
 .arrow {
   font-size: 14px;
   transition: transform 0.2s ease;
+  display: inline-block;
+  /* ← ESTO es obligatorio */
+  margin-left: 10px;
+
 }
 
 .arrow.open {
   transform: rotate(90deg);
+
 }
 
 @keyframes spin {
